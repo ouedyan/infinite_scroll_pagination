@@ -1,6 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
-import 'package:infinite_scroll_pagination/src/core/paging_state.dart';
+import 'package:infinite_scroll_pagination_v6/src/core/paging_state.dart';
 
 /// The default implementation of [PagingState].
 ///

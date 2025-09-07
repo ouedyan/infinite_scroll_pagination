@@ -1,4 +1,4 @@
-import 'package:infinite_scroll_pagination/src/core/paging_state.dart';
+import 'package:infinite_scroll_pagination_v6/src/core/paging_state.dart';
 
 /// All possible status for a pagination.
 enum PagingStatus {

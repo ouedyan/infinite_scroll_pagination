@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 
-import 'package:infinite_scroll_pagination/src/core/paging_controller.dart';
-import 'package:infinite_scroll_pagination/src/core/paging_state.dart';
-import 'package:infinite_scroll_pagination/src/base/paged_layout_builder.dart';
+import 'package:infinite_scroll_pagination_v6/src/core/paging_controller.dart';
+import 'package:infinite_scroll_pagination_v6/src/core/paging_state.dart';
+import 'package:infinite_scroll_pagination_v6/src/base/paged_layout_builder.dart';
 
 class PagingListener<PageKeyType, ItemType> extends StatelessWidget {
   const PagingListener({

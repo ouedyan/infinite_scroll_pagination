@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
-import 'package:infinite_scroll_pagination/src/base/paged_child_builder_delegate.dart';
-import 'package:infinite_scroll_pagination/src/core/paging_state.dart';
-import 'package:infinite_scroll_pagination/src/base/paged_layout_builder.dart';
-import 'package:infinite_scroll_pagination/src/layouts/paged_sliver_grid.dart';
+import 'package:infinite_scroll_pagination_v6/src/base/paged_child_builder_delegate.dart';
+import 'package:infinite_scroll_pagination_v6/src/core/paging_state.dart';
+import 'package:infinite_scroll_pagination_v6/src/base/paged_layout_builder.dart';
+import 'package:infinite_scroll_pagination_v6/src/layouts/paged_sliver_grid.dart';
 
 /// A [GridView] with pagination capabilities.
 ///
@@ -84,8 +84,7 @@ class PagedGridView<PageKeyType, ItemType> extends BoxScrollView {
   final bool _shrinkWrapFirstPageIndicators;
 
   @override
-  Widget buildChildLayout(BuildContext context) =>
-      PagedSliverGrid<PageKeyType, ItemType>(
+  Widget buildChildLayout(BuildContext context) => PagedSliverGrid<PageKeyType, ItemType>(
         builderDelegate: builderDelegate,
         state: state,
         fetchNextPage: fetchNextPage,
@@ -93,12 +92,9 @@ class PagedGridView<PageKeyType, ItemType> extends BoxScrollView {
         addAutomaticKeepAlives: addAutomaticKeepAlives,
         addRepaintBoundaries: addRepaintBoundaries,
         addSemanticIndexes: addSemanticIndexes,
-        showNewPageProgressIndicatorAsGridChild:
-            showNewPageProgressIndicatorAsGridChild,
-        showNewPageErrorIndicatorAsGridChild:
-            showNewPageErrorIndicatorAsGridChild,
-        showNoMoreItemsIndicatorAsGridChild:
-            showNoMoreItemsIndicatorAsGridChild,
+        showNewPageProgressIndicatorAsGridChild: showNewPageProgressIndicatorAsGridChild,
+        showNewPageErrorIndicatorAsGridChild: showNewPageErrorIndicatorAsGridChild,
+        showNoMoreItemsIndicatorAsGridChild: showNoMoreItemsIndicatorAsGridChild,
         shrinkWrapFirstPageIndicators: _shrinkWrapFirstPageIndicators,
       );
 }

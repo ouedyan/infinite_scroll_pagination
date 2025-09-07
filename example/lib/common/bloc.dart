@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/foundation.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+import 'package:infinite_scroll_pagination_v6/infinite_scroll_pagination.dart';
 
 sealed class PagingEvent {
   const PagingEvent();
@@ -103,10 +103,7 @@ final class BlocPagingState<T> extends PagingStateBase<int, T> {
 
   @override
   bool operator ==(Object other) =>
-      other is BlocPagingState<T> &&
-      super == (other) &&
-      search == other.search &&
-      cancelToken == other.cancelToken;
+      other is BlocPagingState<T> && super == (other) && search == other.search && cancelToken == other.cancelToken;
 
   @override
   int get hashCode => Object.hash(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+import 'package:infinite_scroll_pagination_v6/infinite_scroll_pagination.dart';
 import 'package:mockito/mockito.dart';
 
 import '../utils/paging_controller_utils.dart';
@@ -99,15 +99,10 @@ Future<void> _pumpPagedPageView({
             scrollDirection: Axis.vertical,
             builderDelegate: PagedChildBuilderDelegate<String>(
               itemBuilder: buildTestTile(_itemHeight),
-              newPageProgressIndicatorBuilder: newPageProgressIndicator != null
-                  ? (context) => newPageProgressIndicator
-                  : null,
-              newPageErrorIndicatorBuilder: newPageErrorIndicator != null
-                  ? (context) => newPageErrorIndicator
-                  : null,
-              noMoreItemsIndicatorBuilder: noMoreItemsIndicator != null
-                  ? (context) => noMoreItemsIndicator
-                  : null,
+              newPageProgressIndicatorBuilder:
+                  newPageProgressIndicator != null ? (context) => newPageProgressIndicator : null,
+              newPageErrorIndicatorBuilder: newPageErrorIndicator != null ? (context) => newPageErrorIndicator : null,
+              noMoreItemsIndicatorBuilder: noMoreItemsIndicator != null ? (context) => noMoreItemsIndicator : null,
             ),
           ),
         ),

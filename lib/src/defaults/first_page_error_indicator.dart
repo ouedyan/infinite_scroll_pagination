@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:infinite_scroll_pagination/src/defaults/first_page_exception_indicator.dart';
+import 'package:infinite_scroll_pagination_v6/src/defaults/first_page_exception_indicator.dart';
 
 class FirstPageErrorIndicator extends StatelessWidget {
   const FirstPageErrorIndicator({

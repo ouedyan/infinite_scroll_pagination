@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+import 'package:infinite_scroll_pagination_v6/infinite_scroll_pagination.dart';
 import 'package:mockito/mockito.dart';
 
 import '../utils/paging_controller_utils.dart';
@@ -30,9 +30,7 @@ void main() {
       verify(mockFetchNextPage()).called(1);
     });
 
-    testWidgets(
-        'Requests second page immediately if the first page isn\'t enough',
-        (tester) async {
+    testWidgets('Requests second page immediately if the first page isn\'t enough', (tester) async {
       tester.applyPreferredTestScreenSize();
 
       final state = TestPagingState.ongoing(n: pageSize ~/ 2);
@@ -80,8 +78,7 @@ void main() {
     });
 
     group('Displays indicators as grid children', () {
-      testWidgets('Appends the new page progress indicator to the grid items',
-          (tester) async {
+      testWidgets('Appends the new page progress indicator to the grid items', (tester) async {
         tester.applyPreferredTestScreenSize();
 
         final state = TestPagingState.ongoing();
@@ -110,8 +107,7 @@ void main() {
         );
       });
 
-      testWidgets('Appends the new page error indicator to the grid items',
-          (tester) async {
+      testWidgets('Appends the new page error indicator to the grid items', (tester) async {
         tester.applyPreferredTestScreenSize();
 
         final state = TestPagingState.subsequentPageError();
@@ -141,8 +137,7 @@ void main() {
         );
       });
 
-      testWidgets('Appends the no more items indicator to the grid items',
-          (tester) async {
+      testWidgets('Appends the no more items indicator to the grid items', (tester) async {
         tester.applyPreferredTestScreenSize();
 
         final state = TestPagingState.completed();
@@ -281,27 +276,19 @@ Future<void> _pumpPagedGridView({
             fetchNextPage: fetchNextPage,
             builderDelegate: PagedChildBuilderDelegate<String>(
               itemBuilder: buildTestTile(_itemHeight),
-              newPageProgressIndicatorBuilder: newPageProgressIndicator != null
-                  ? (context) => newPageProgressIndicator
-                  : null,
-              newPageErrorIndicatorBuilder: newPageErrorIndicator != null
-                  ? (context) => newPageErrorIndicator
-                  : null,
-              noMoreItemsIndicatorBuilder: noMoreItemsIndicator != null
-                  ? (context) => noMoreItemsIndicator
-                  : null,
+              newPageProgressIndicatorBuilder:
+                  newPageProgressIndicator != null ? (context) => newPageProgressIndicator : null,
+              newPageErrorIndicatorBuilder: newPageErrorIndicator != null ? (context) => newPageErrorIndicator : null,
+              noMoreItemsIndicatorBuilder: noMoreItemsIndicator != null ? (context) => noMoreItemsIndicator : null,
             ),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisSpacing: 0,
               mainAxisSpacing: 0,
               crossAxisCount: crossAxisCount,
             ),
-            showNewPageProgressIndicatorAsGridChild:
-                showNewPageProgressIndicatorAsGridChild,
-            showNewPageErrorIndicatorAsGridChild:
-                showNewPageErrorIndicatorAsGridChild,
-            showNoMoreItemsIndicatorAsGridChild:
-                showNoMoreItemsIndicatorAsGridChild,
+            showNewPageProgressIndicatorAsGridChild: showNewPageProgressIndicatorAsGridChild,
+            showNewPageErrorIndicatorAsGridChild: showNewPageErrorIndicatorAsGridChild,
+            showNoMoreItemsIndicatorAsGridChild: showNoMoreItemsIndicatorAsGridChild,
           ),
         ),
       ),

@@ -2,15 +2,15 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:infinite_scroll_pagination/src/base/paged_child_builder_delegate.dart';
+import 'package:infinite_scroll_pagination_v6/src/base/paged_child_builder_delegate.dart';
 
-import 'package:infinite_scroll_pagination/src/defaults/first_page_error_indicator.dart';
-import 'package:infinite_scroll_pagination/src/defaults/first_page_progress_indicator.dart';
-import 'package:infinite_scroll_pagination/src/defaults/new_page_error_indicator.dart';
-import 'package:infinite_scroll_pagination/src/defaults/new_page_progress_indicator.dart';
-import 'package:infinite_scroll_pagination/src/defaults/no_items_found_indicator.dart';
-import 'package:infinite_scroll_pagination/src/core/paging_state.dart';
-import 'package:infinite_scroll_pagination/src/core/paging_status.dart';
+import 'package:infinite_scroll_pagination_v6/src/defaults/first_page_error_indicator.dart';
+import 'package:infinite_scroll_pagination_v6/src/defaults/first_page_progress_indicator.dart';
+import 'package:infinite_scroll_pagination_v6/src/defaults/new_page_error_indicator.dart';
+import 'package:infinite_scroll_pagination_v6/src/defaults/new_page_progress_indicator.dart';
+import 'package:infinite_scroll_pagination_v6/src/defaults/no_items_found_indicator.dart';
+import 'package:infinite_scroll_pagination_v6/src/core/paging_state.dart';
+import 'package:infinite_scroll_pagination_v6/src/core/paging_status.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
 /// Called to request a new page of data.
@@ -100,12 +100,10 @@ class PagedLayoutBuilder<PageKeyType, ItemType> extends StatefulWidget {
   final PagedLayoutProtocol layoutProtocol;
 
   @override
-  State<PagedLayoutBuilder<PageKeyType, ItemType>> createState() =>
-      _PagedLayoutBuilderState<PageKeyType, ItemType>();
+  State<PagedLayoutBuilder<PageKeyType, ItemType>> createState() => _PagedLayoutBuilderState<PageKeyType, ItemType>();
 }
 
-class _PagedLayoutBuilderState<PageKeyType, ItemType>
-    extends State<PagedLayoutBuilder<PageKeyType, ItemType>> {
+class _PagedLayoutBuilderState<PageKeyType, ItemType> extends State<PagedLayoutBuilder<PageKeyType, ItemType>> {
   PagingState<PageKeyType, ItemType> get _state => widget.state;
 
   NextPageCallback get _fetchNextPage =>
@@ -116,11 +114,9 @@ class _PagedLayoutBuilderState<PageKeyType, ItemType>
             widget.fetchNextPage();
           });
 
-  PagedChildBuilderDelegate<ItemType> get _builderDelegate =>
-      widget.builderDelegate;
+  PagedChildBuilderDelegate<ItemType> get _builderDelegate => widget.builderDelegate;
 
-  bool get _shrinkWrapFirstPageIndicators =>
-      widget.shrinkWrapFirstPageIndicators;
+  bool get _shrinkWrapFirstPageIndicators => widget.shrinkWrapFirstPageIndicators;
 
   PagedLayoutProtocol get _layoutProtocol => widget.layoutProtocol;
 
@@ -137,19 +133,15 @@ class _PagedLayoutBuilderState<PageKeyType, ItemType>
           );
 
   WidgetBuilder get _firstPageProgressIndicatorBuilder =>
-      _builderDelegate.firstPageProgressIndicatorBuilder ??
-      (_) => const FirstPageProgressIndicator();
+      _builderDelegate.firstPageProgressIndicatorBuilder ?? (_) => const FirstPageProgressIndicator();
 
   WidgetBuilder get _newPageProgressIndicatorBuilder =>
-      _builderDelegate.newPageProgressIndicatorBuilder ??
-      (_) => const NewPageProgressIndicator();
+      _builderDelegate.newPageProgressIndicatorBuilder ?? (_) => const NewPageProgressIndicator();
 
   WidgetBuilder get _noItemsFoundIndicatorBuilder =>
-      _builderDelegate.noItemsFoundIndicatorBuilder ??
-      (_) => const NoItemsFoundIndicator();
+      _builderDelegate.noItemsFoundIndicatorBuilder ?? (_) => const NoItemsFoundIndicator();
 
-  WidgetBuilder? get _noMoreItemsIndicatorBuilder =>
-      _builderDelegate.noMoreItemsIndicatorBuilder;
+  WidgetBuilder? get _noMoreItemsIndicatorBuilder => _builderDelegate.noMoreItemsIndicatorBuilder;
 
   int get _invisibleItemsThreshold => _builderDelegate.invisibleItemsThreshold;
 
@@ -165,8 +157,7 @@ class _PagedLayoutBuilderState<PageKeyType, ItemType>
   }
 
   @override
-  void didUpdateWidget(
-      covariant PagedLayoutBuilder<PageKeyType, ItemType> oldWidget) {
+  void didUpdateWidget(covariant PagedLayoutBuilder<PageKeyType, ItemType> oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.state != widget.state) {
       if (_state.status == PagingStatus.loadingFirstPage) {
@@ -320,8 +311,7 @@ class _FirstPageStatusIndicatorBuilder extends StatelessWidget {
               hasScrollBody: false,
               child: builder(context),
             ),
-      PagedLayoutProtocol.box =>
-        shrinkWrap ? builder(context) : Center(child: builder(context)),
+      PagedLayoutProtocol.box => shrinkWrap ? builder(context) : Center(child: builder(context)),
     };
   }
 }

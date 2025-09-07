@@ -4,7 +4,7 @@ import 'package:infinite_example/common/error.dart';
 import 'package:infinite_example/common/list_tile.dart';
 import 'package:infinite_example/common/search_appbar.dart';
 import 'package:flutter/material.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+import 'package:infinite_scroll_pagination_v6/infinite_scroll_pagination.dart';
 
 class ListViewScreen extends StatefulWidget {
   const ListViewScreen({super.key});

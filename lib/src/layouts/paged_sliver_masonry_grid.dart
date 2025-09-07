@@ -1,9 +1,9 @@
 import 'package:flutter/widgets.dart';
-import 'package:infinite_scroll_pagination/src/base/paged_child_builder_delegate.dart';
-import 'package:infinite_scroll_pagination/src/core/paging_state.dart';
-import 'package:infinite_scroll_pagination/src/helpers/appended_sliver_grid.dart';
-import 'package:infinite_scroll_pagination/src/base/paged_layout_builder.dart';
-import 'package:infinite_scroll_pagination/src/helpers/flutter_staggered_grid_view.dart';
+import 'package:infinite_scroll_pagination_v6/src/base/paged_child_builder_delegate.dart';
+import 'package:infinite_scroll_pagination_v6/src/core/paging_state.dart';
+import 'package:infinite_scroll_pagination_v6/src/helpers/appended_sliver_grid.dart';
+import 'package:infinite_scroll_pagination_v6/src/base/paged_layout_builder.dart';
+import 'package:infinite_scroll_pagination_v6/src/helpers/flutter_staggered_grid_view.dart';
 
 /// A [SliverMasonryGrid] with pagination capabilities.
 ///
@@ -48,10 +48,9 @@ class PagedSliverMasonryGrid<PageKeyType, ItemType> extends StatelessWidget {
     this.showNoMoreItemsIndicatorAsGridChild = true,
     this.shrinkWrapFirstPageIndicators = false,
     super.key,
-  }) : gridDelegateBuilder =
-            ((childCount) => SliverSimpleGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: crossAxisCount,
-                ));
+  }) : gridDelegateBuilder = ((childCount) => SliverSimpleGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: crossAxisCount,
+            ));
 
   /// Equivalent to [SliverMasonryGrid.extent].
   PagedSliverMasonryGrid.extent({
@@ -69,10 +68,9 @@ class PagedSliverMasonryGrid<PageKeyType, ItemType> extends StatelessWidget {
     this.showNoMoreItemsIndicatorAsGridChild = true,
     this.shrinkWrapFirstPageIndicators = false,
     super.key,
-  }) : gridDelegateBuilder =
-            ((childCount) => SliverSimpleGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: maxCrossAxisExtent,
-                ));
+  }) : gridDelegateBuilder = ((childCount) => SliverSimpleGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: maxCrossAxisExtent,
+            ));
 
   /// Matches [PagedLayoutBuilder.state].
   final PagingState<PageKeyType, ItemType> state;
@@ -115,8 +113,7 @@ class PagedSliverMasonryGrid<PageKeyType, ItemType> extends StatelessWidget {
   final double crossAxisSpacing;
 
   @override
-  Widget build(BuildContext context) =>
-      PagedLayoutBuilder<PageKeyType, ItemType>(
+  Widget build(BuildContext context) => PagedLayoutBuilder<PageKeyType, ItemType>(
         layoutProtocol: PagedLayoutProtocol.sliver,
         state: state,
         fetchNextPage: fetchNextPage,

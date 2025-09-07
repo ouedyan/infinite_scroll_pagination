@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+import 'package:infinite_scroll_pagination_v6/infinite_scroll_pagination.dart';
 import 'package:mockito/mockito.dart';
 
 import '../utils/paging_controller_utils.dart';
@@ -26,9 +26,7 @@ void main() {
       verify(mockPageRequestListener()).called(1);
     });
 
-    testWidgets(
-        'Requests second page immediately if the first page isn\'t enough',
-        (tester) async {
+    testWidgets('Requests second page immediately if the first page isn\'t enough', (tester) async {
       await _pumpPagedSliverList(
         tester: tester,
         state: TestPagingState.ongoing(n: pageSize ~/ 2),
@@ -68,9 +66,7 @@ void main() {
     });
   });
 
-  testWidgets(
-      'Inserts separators between items if a [separatorBuilder] is specified',
-      (tester) async {
+  testWidgets('Inserts separators between items if a [separatorBuilder] is specified', (tester) async {
     tester.applyPreferredTestScreenSize();
 
     await _pumpPagedSliverList(
@@ -87,8 +83,7 @@ void main() {
   });
 
   group('Appends indicators to the item list', () {
-    testWidgets('Appends the new page progress indicator to the list items',
-        (tester) async {
+    testWidgets('Appends the new page progress indicator to the list items', (tester) async {
       tester.applyPreferredTestScreenSize();
 
       final customIndicatorKey = UniqueKey();
@@ -114,8 +109,7 @@ void main() {
       );
     });
 
-    testWidgets('Appends the new page error indicator to the list items',
-        (tester) async {
+    testWidgets('Appends the new page error indicator to the list items', (tester) async {
       tester.applyPreferredTestScreenSize();
 
       final customIndicatorKey = UniqueKey();
@@ -142,8 +136,7 @@ void main() {
       );
     });
 
-    testWidgets('Appends the no more items indicator to the list items',
-        (tester) async {
+    testWidgets('Appends the no more items indicator to the list items', (tester) async {
       tester.applyPreferredTestScreenSize();
 
       final customIndicatorKey = UniqueKey();
@@ -193,15 +186,11 @@ Future<void> _pumpPagedSliverList({
                   builderDelegate: PagedChildBuilderDelegate<String>(
                     itemBuilder: buildTestTile(_itemHeight),
                     newPageProgressIndicatorBuilder:
-                        newPageProgressIndicator != null
-                            ? (context) => newPageProgressIndicator
-                            : null,
-                    newPageErrorIndicatorBuilder: newPageErrorIndicator != null
-                        ? (context) => newPageErrorIndicator
-                        : null,
-                    noMoreItemsIndicatorBuilder: noMoreItemsIndicator != null
-                        ? (context) => noMoreItemsIndicator
-                        : null,
+                        newPageProgressIndicator != null ? (context) => newPageProgressIndicator : null,
+                    newPageErrorIndicatorBuilder:
+                        newPageErrorIndicator != null ? (context) => newPageErrorIndicator : null,
+                    noMoreItemsIndicatorBuilder:
+                        noMoreItemsIndicator != null ? (context) => noMoreItemsIndicator : null,
                   ),
                 )
               else
@@ -211,15 +200,11 @@ Future<void> _pumpPagedSliverList({
                   builderDelegate: PagedChildBuilderDelegate<String>(
                     itemBuilder: buildTestTile(_itemHeight),
                     newPageProgressIndicatorBuilder:
-                        newPageProgressIndicator != null
-                            ? (context) => newPageProgressIndicator
-                            : null,
-                    newPageErrorIndicatorBuilder: newPageErrorIndicator != null
-                        ? (context) => newPageErrorIndicator
-                        : null,
-                    noMoreItemsIndicatorBuilder: noMoreItemsIndicator != null
-                        ? (context) => noMoreItemsIndicator
-                        : null,
+                        newPageProgressIndicator != null ? (context) => newPageProgressIndicator : null,
+                    newPageErrorIndicatorBuilder:
+                        newPageErrorIndicator != null ? (context) => newPageErrorIndicator : null,
+                    noMoreItemsIndicatorBuilder:
+                        noMoreItemsIndicator != null ? (context) => noMoreItemsIndicator : null,
                   ),
                   separatorBuilder: separatorBuilder,
                 ),

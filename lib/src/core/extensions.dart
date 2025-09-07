@@ -1,11 +1,10 @@
-import 'package:infinite_scroll_pagination/src/core/paging_controller.dart';
-import 'package:infinite_scroll_pagination/src/core/paging_state.dart';
-import 'package:infinite_scroll_pagination/src/core/paging_status.dart';
+import 'package:infinite_scroll_pagination_v6/src/core/paging_controller.dart';
+import 'package:infinite_scroll_pagination_v6/src/core/paging_state.dart';
+import 'package:infinite_scroll_pagination_v6/src/core/paging_status.dart';
 import 'package:meta/meta.dart';
 
 /// Helper extensions to make working with [PagingState] easier.
-extension PagingStateExtension<PageKeyType, ItemType>
-    on PagingState<PageKeyType, ItemType> {
+extension PagingStateExtension<PageKeyType, ItemType> on PagingState<PageKeyType, ItemType> {
   /// Convenience method to update the items of the state by applying a mapper function to each item.
   ///
   /// The result of this method is a new [PagingState] with the same properties as the original state
@@ -52,8 +51,7 @@ extension IntPagingStateExtension<ItemType> on PagingState<int, ItemType> {
 }
 
 /// Helper extensions to quickly access the state of a [PagingController].
-extension PagingControllerExtension<PageKeyType, ItemType>
-    on PagingController<PageKeyType, ItemType> {
+extension PagingControllerExtension<PageKeyType, ItemType> on PagingController<PageKeyType, ItemType> {
   /// The pages fetched so far.
   List<List<ItemType>> get pages => value.pages;
 
@@ -63,8 +61,7 @@ extension PagingControllerExtension<PageKeyType, ItemType>
   /// Convenience method to update the items of the state.
   ///
   /// Items cannot be directly assigned, because they are backed by a list of pages.
-  void mapItems(ItemType Function(ItemType item) mapper) =>
-      value = value.mapItems(mapper);
+  void mapItems(ItemType Function(ItemType item) mapper) => value = value.mapItems(mapper);
 
   /// The keys of the pages fetched so far.
   List<PageKeyType> get keys => value.keys;

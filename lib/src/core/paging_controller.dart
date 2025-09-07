@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
-import 'package:infinite_scroll_pagination/src/core/paging_state.dart';
+import 'package:infinite_scroll_pagination_v6/src/core/paging_state.dart';
 
 /// A callback to get the next page key.
 /// If this function returns `null`, it indicates that there are no more pages to load.

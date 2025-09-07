@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+import 'package:infinite_scroll_pagination_v6/infinite_scroll_pagination.dart';
 
 void main() {
   group('PagingController', () {
@@ -78,8 +78,7 @@ void main() {
       });
 
       test('stops if no more pages are available', () async {
-        pagingController.value =
-            pagingController.value.copyWith(hasNextPage: false);
+        pagingController.value = pagingController.value.copyWith(hasNextPage: false);
         pagingController.fetchNextPage();
         expect(fetchCalled, isFalse);
       });
@@ -134,8 +133,7 @@ void main() {
           fetchPage: (_) => throw Error(),
         );
 
-        expect(() async => pagingController.fetchNextPage(),
-            throwsA(isA<Error>()));
+        expect(() async => pagingController.fetchNextPage(), throwsA(isA<Error>()));
 
         expect(pagingController.value.isLoading, isFalse);
         expect(pagingController.value.error, isA<Error>());

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:infinite_scroll_pagination/src/defaults/footer_tile.dart';
+import 'package:infinite_scroll_pagination_v6/src/defaults/footer_tile.dart';
 
 class NewPageProgressIndicator extends StatelessWidget {
   const NewPageProgressIndicator({super.key});

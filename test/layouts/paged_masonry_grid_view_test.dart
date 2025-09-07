@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+import 'package:infinite_scroll_pagination_v6/infinite_scroll_pagination.dart';
 import 'package:mockito/mockito.dart';
 
 import '../utils/paging_controller_utils.dart';
@@ -26,9 +26,7 @@ void main() {
       verify(mockPageRequestListener()).called(1);
     });
 
-    testWidgets(
-        'Requests second page immediately if the first page isn\'t enough',
-        (tester) async {
+    testWidgets('Requests second page immediately if the first page isn\'t enough', (tester) async {
       tester.applyPreferredTestScreenSize();
 
       await _pumpPagedStaggeredGridView(
@@ -70,8 +68,7 @@ void main() {
     });
 
     group('Displays indicators as grid children', () {
-      testWidgets('Appends the new page progress indicator to the grid items',
-          (tester) async {
+      testWidgets('Appends the new page progress indicator to the grid items', (tester) async {
         tester.applyPreferredTestScreenSize();
 
         final customIndicatorKey = UniqueKey();
@@ -98,8 +95,7 @@ void main() {
         );
       });
 
-      testWidgets('Appends the new page error indicator to the grid items',
-          (tester) async {
+      testWidgets('Appends the new page error indicator to the grid items', (tester) async {
         tester.applyPreferredTestScreenSize();
 
         final customIndicatorKey = UniqueKey();
@@ -127,8 +123,7 @@ void main() {
         );
       });
 
-      testWidgets('Appends the no more items indicator to the grid items',
-          (tester) async {
+      testWidgets('Appends the no more items indicator to the grid items', (tester) async {
         tester.applyPreferredTestScreenSize();
 
         final customIndicatorKey = UniqueKey();
@@ -176,15 +171,10 @@ Future<void> _pumpPagedStaggeredGridView({
             fetchNextPage: fetchNextPage,
             builderDelegate: PagedChildBuilderDelegate<String>(
               itemBuilder: buildTestTile(_itemHeight),
-              newPageProgressIndicatorBuilder: newPageProgressIndicator != null
-                  ? (context) => newPageProgressIndicator
-                  : null,
-              newPageErrorIndicatorBuilder: newPageErrorIndicator != null
-                  ? (context) => newPageErrorIndicator
-                  : null,
-              noMoreItemsIndicatorBuilder: noMoreItemsIndicator != null
-                  ? (context) => noMoreItemsIndicator
-                  : null,
+              newPageProgressIndicatorBuilder:
+                  newPageProgressIndicator != null ? (context) => newPageProgressIndicator : null,
+              newPageErrorIndicatorBuilder: newPageErrorIndicator != null ? (context) => newPageErrorIndicator : null,
+              noMoreItemsIndicatorBuilder: noMoreItemsIndicator != null ? (context) => noMoreItemsIndicator : null,
             ),
             crossAxisCount: 2,
           ),

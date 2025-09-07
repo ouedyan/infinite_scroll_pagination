@@ -2,12 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:infinite_scroll_pagination/src/defaults/first_page_error_indicator.dart';
-import 'package:infinite_scroll_pagination/src/defaults/first_page_progress_indicator.dart';
-import 'package:infinite_scroll_pagination/src/defaults/new_page_error_indicator.dart';
-import 'package:infinite_scroll_pagination/src/defaults/new_page_progress_indicator.dart';
-import 'package:infinite_scroll_pagination/src/defaults/no_items_found_indicator.dart';
+import 'package:infinite_scroll_pagination_v6/infinite_scroll_pagination.dart';
+import 'package:infinite_scroll_pagination_v6/src/defaults/first_page_error_indicator.dart';
+import 'package:infinite_scroll_pagination_v6/src/defaults/first_page_progress_indicator.dart';
+import 'package:infinite_scroll_pagination_v6/src/defaults/new_page_error_indicator.dart';
+import 'package:infinite_scroll_pagination_v6/src/defaults/new_page_progress_indicator.dart';
+import 'package:infinite_scroll_pagination_v6/src/defaults/no_items_found_indicator.dart';
 
 import '../utils/paging_controller_utils.dart';
 
@@ -38,9 +38,7 @@ void main() {
       _expectOneWidgetOfType(FirstPageProgressIndicator);
     });
 
-    testWidgets(
-        'Uses the custom first page progress indicator when one is provided.',
-        (tester) async {
+    testWidgets('Uses the custom first page progress indicator when one is provided.', (tester) async {
       // given
       final customIndicatorKey = UniqueKey();
       final builderDelegate = PagedChildBuilderDelegate<int>(
@@ -88,9 +86,7 @@ void main() {
       _expectOneWidgetOfType(FirstPageErrorIndicator);
     });
 
-    testWidgets(
-        'Uses the custom first page error indicator when one is provided.',
-        (tester) async {
+    testWidgets('Uses the custom first page error indicator when one is provided.', (tester) async {
       // given
       final customIndicatorKey = UniqueKey();
       final builderDelegate = PagedChildBuilderDelegate<int>(
@@ -138,9 +134,7 @@ void main() {
       _expectOneWidgetOfType(NoItemsFoundIndicator);
     });
 
-    testWidgets(
-        'Uses the custom no items found indicator when one is provided.',
-        (tester) async {
+    testWidgets('Uses the custom no items found indicator when one is provided.', (tester) async {
       // given
       final customIndicatorKey = UniqueKey();
       final builderDelegate = PagedChildBuilderDelegate<int>(
@@ -190,9 +184,7 @@ void main() {
       _expectOneWidgetOfType(NewPageErrorIndicator);
     });
 
-    testWidgets(
-        'Uses the custom new page error indicator when one is provided.',
-        (tester) async {
+    testWidgets('Uses the custom new page error indicator when one is provided.', (tester) async {
       // given
       final customIndicatorKey = UniqueKey();
       final builderDelegate = PagedChildBuilderDelegate<int>(
@@ -245,9 +237,7 @@ void main() {
       _expectOneWidgetOfType(NewPageProgressIndicator);
     });
 
-    testWidgets(
-        'Uses the custom new page progress indicator when one is provided.',
-        (tester) async {
+    testWidgets('Uses the custom new page progress indicator when one is provided.', (tester) async {
       // given
       final customIndicatorKey = UniqueKey();
       final builderDelegate = PagedChildBuilderDelegate<int>(
@@ -278,8 +268,7 @@ void main() {
       state = TestPagingState.completed();
     });
 
-    testWidgets('Uses the custom no more items indicator when one is provided.',
-        (tester) async {
+    testWidgets('Uses the custom no more items indicator when one is provided.', (tester) async {
       // given
       final customIndicatorKey = UniqueKey();
       final builderDelegate = PagedChildBuilderDelegate<int>(

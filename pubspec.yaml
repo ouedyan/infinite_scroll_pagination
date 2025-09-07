@@ -1,4 +1,4 @@
-name: infinite_scroll_pagination
+name: infinite_scroll_pagination_v6
 description: Lazily load and display pages of items as the user scrolls down your screen.
 version: 5.1.0
 homepage: https://github.com/EdsonBueno/infinite_scroll_pagination

@@ -2,7 +2,7 @@ import 'package:infinite_example/remote/item.dart';
 import 'package:infinite_example/remote/api.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+import 'package:infinite_scroll_pagination_v6/infinite_scroll_pagination.dart';
 import 'list_view.dart';
 import 'sliver_grid.dart';
 
@@ -103,10 +103,7 @@ class _PageViewScreenState extends State<PageViewScreen> {
                       ),
                       child: Text(
                         '${(_pageController.page ?? 0).round()} / ${_state.items?.length ?? 0}',
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleLarge
-                            ?.copyWith(color: Colors.white),
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.white),
                       ),
                     ),
                   )
