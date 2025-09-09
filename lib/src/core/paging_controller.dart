@@ -5,12 +5,10 @@ import 'package:infinite_scroll_pagination_v6/src/core/paging_state.dart';
 
 /// A callback to get the next page key.
 /// If this function returns `null`, it indicates that there are no more pages to load.
-typedef NextPageKeyCallback<PageKeyType, ItemType> = PageKeyType? Function(
-    PagingState<PageKeyType, ItemType> state);
+typedef NextPageKeyCallback<PageKeyType, ItemType> = PageKeyType? Function(PagingState<PageKeyType, ItemType> state);
 
 /// A callback to fetch a page.
-typedef FetchPageCallback<PageKeyType, ItemType> = FutureOr<List<ItemType>>
-    Function(PageKeyType pageKey);
+typedef FetchPageCallback<PageKeyType, ItemType> = FutureOr<List<ItemType>> Function(PageKeyType pageKey);
 
 /// A controller to handle a [PagingState].
 ///
@@ -20,8 +18,7 @@ typedef FetchPageCallback<PageKeyType, ItemType> = FutureOr<List<ItemType>>
 /// Note that for convenience, fetch operations are not atomic.
 /// The state may be updated during a fetch operation. This should be done fully synchronously,
 /// as otherwise, the state may become desynchronized.
-class PagingController<PageKeyType, ItemType>
-    extends ValueNotifier<PagingState<PageKeyType, ItemType>> {
+class PagingController<PageKeyType, ItemType> extends ValueNotifier<PagingState<PageKeyType, ItemType>> {
   PagingController({
     PagingState<PageKeyType, ItemType>? value,
     required NextPageKeyCallback<PageKeyType, ItemType> getNextPageKey,
@@ -35,9 +32,11 @@ class PagingController<PageKeyType, ItemType>
   /// The function to get the next page key.
   /// If this function returns `null`, it indicates that there are no more pages to load.
   final NextPageKeyCallback<PageKeyType, ItemType> _getNextPageKey;
+  NextPageKeyCallback<PageKeyType, ItemType> get getNextPageKey => _getNextPageKey;
 
   /// The function to fetch a page.
   final FetchPageCallback<PageKeyType, ItemType> _fetchPage;
+  FetchPageCallback<PageKeyType, ItemType> get fetchPage => _fetchPage;
 
   /// Keeps track of the current operation.
   /// If the operation changes during its execution, the operation is cancelled.
